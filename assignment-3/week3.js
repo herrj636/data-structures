@@ -48,39 +48,30 @@ fs.writeFileSync('data/m06_parsed.json', JSON.stringify(cleanUp));
 
 
 var addresses = cleanUp;
+var meetingsData = [];
 
-// eachSeries in the async module iterates over an array and operates on each item in the array in series
 async.eachSeries(addresses, function(value, callback) {
     var apiRequest = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx?';
     apiRequest += 'streetAddress=' + value.split(' ').join('%20');
     apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
     apiRequest += '&format=json&version=4.01';
     
-    request(apiRequest, function(err, resp, body, last) {
+    var thisMeeting = new Object;
+    thisMeeting.address = value;
+    request(apiRequest, function(err, resp, body) {
         if (err) {throw err;}
-        else {
-            console.log('connected')
-            var tamuGeo = JSON.parse(body);
-            // console.log(tamuGeo['FeatureMatchingResultType']);
-            meetingsData.push(tamuGeo);
-            
-            var streetAdrs = tamuGeo["InputAddress"]["StreetAddress"];
-            var lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
-            var lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
+        console.log('Connected')
+        var tamuGeo = JSON.parse(body);
+        sa = tamuGeo["InputAddress"]["StreetAddress"];
+        lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
+        lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
             // timer cb write to global works in js but not in node
             // data.push({"street":sa,"lat":lat,"lon":lon});
-            fs.appendFileSync('data.json', JSON.stringify({"street":streetAdrs,"lat":lat,"lon":lon}));
-            if (last)
-                fs.appendFileSync('data.json', ']');  // close JSON at end
-            else
-                fs.appendFileSync('data.json', ',');  // or put a comma between objs
-            // console.log(sa+lat+lon);
-        }
+        fs.appendFileSync('data.json', JSON.stringify({"street":sa,"lat":lat,"lon":lon}));
     });
     setTimeout(callback, 2000);
 }, function() {
-    fs.writeFileSync('first.json', JSON.stringify(meetingsData));
-    console.log('*** *** *** *** ***');
-    console.log('Number of meetings in this zone: ');
-    // console.log(meetingsData.length);
+    console.log(meetingsData);
 });
+
+fs.writeFileSync('data.json', '[');
