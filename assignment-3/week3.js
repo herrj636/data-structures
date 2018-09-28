@@ -55,6 +55,8 @@ async.eachSeries(addresses, function(value, callback, last) {
     apiRequest += 'streetAddress=' + value.split(' ').join('%20');
     apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
     apiRequest += '&format=json&version=4.01';
+    console.log(apiKey)
+    console.log(apiRequest);
     
     var thisMeeting = new Object;
     thisMeeting.address = value;
@@ -63,6 +65,7 @@ async.eachSeries(addresses, function(value, callback, last) {
         console.log('Connected')
         var tamuGeo = JSON.parse(body);
         sa = tamuGeo["InputAddress"]["StreetAddress"];
+        console.log(tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"]);
         lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
         lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
             // timer cb write to global works in js but not in node
