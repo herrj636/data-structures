@@ -68,8 +68,6 @@ async.eachSeries(addresses, function(value, callback, last) {
         console.log(tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"]);
         lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
         lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
-            // timer cb write to global works in js but not in node
-            // data.push({"street":sa,"lat":lat,"lon":lon});
         fs.appendFileSync('data.json', JSON.stringify({"street":sa,"lat":lat,"lon":lon}));
         if (last)
                 fs.appendFileSync('data.json', ']');  // close JSON at end
