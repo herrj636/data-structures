@@ -50,7 +50,7 @@ fs.writeFileSync('data/m06_parsed.json', JSON.stringify(cleanUp));
 var addresses = cleanUp;
 var meetingsData = [];
 
-async.eachSeries(addresses, function(value, callback) {
+async.eachSeries(addresses, function(value, callback, last) {
     var apiRequest = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx?';
     apiRequest += 'streetAddress=' + value.split(' ').join('%20');
     apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
@@ -68,6 +68,10 @@ async.eachSeries(addresses, function(value, callback) {
             // timer cb write to global works in js but not in node
             // data.push({"street":sa,"lat":lat,"lon":lon});
         fs.appendFileSync('data.json', JSON.stringify({"street":sa,"lat":lat,"lon":lon}));
+        if (last)
+                fs.appendFileSync('data.json', ']');  // close JSON at end
+            else
+                fs.appendFileSync('data.json', ',');
     });
     setTimeout(callback, 2000);
 }, function() {
