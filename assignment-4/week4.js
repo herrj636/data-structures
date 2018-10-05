@@ -8,7 +8,7 @@ var db_credentials = new Object();
 db_credentials.user = 'herrj636';
 db_credentials.host = 'my-data-structures.cfuhtqfrbela.us-east-1.rds.amazonaws.com';
 db_credentials.database = 'AAmeetings_data';
-db_credentials.password = 'Laurita9010#';
+db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
 
