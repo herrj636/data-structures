@@ -12,26 +12,11 @@ db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
 
-
-var data = JSON.parse(fs.readFileSync('data/data.json'));
-// console.log(data);
-// console.log(typeof(data))
-
-
-
 // Connect to the AWS RDS Postgres database
 const client = new Client(db_credentials);
 client.connect();
 
-// Sample SQL statement to create a table: 
-var thisQuery = "CREATE TABLE aalocations (address varchar(100), lat double precision, long double precision);";
-// Sample SQL statement to delete a table: 
-// var thisQuery = "DROP TABLE aalocations;"; 
-// Sample SQL statement to query the entire contents of a table: 
-// var thisQuery = "SELECT * FROM aalocations;";
-// Sample SQL statement to delete the entire contents of a table:
-// var thisQuery = "DELETE FROM aalocations;";
-
+var data = JSON.parse(fs.readFileSync('data/data.json'));
 
 async.eachSeries(data, function(value, callback) {
     const client = new Client(db_credentials);
