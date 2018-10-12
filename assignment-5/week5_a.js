@@ -1,15 +1,15 @@
 var diaryEntries = [];
 
 class DiaryEntry {
-  constructor(primaryKey, date, time, value, entry, liquor) {
+  constructor(primaryKey, date, time, price, entry, liquor) {
     this.pk = {};
     this.pk.N = primaryKey.toString();
     this.date = {}; 
     this.date.S = new Date(date).toDateString();
     this.time = {}; 
-    this.time.N = new String(time).toDateString();
-    this.value = {}; 
-    this.value.N = new String(time).toDateString();
+    this.time.N = time.toDateString();
+    this.price = {}; 
+    this.price.N = price.toDateString();
     this.drink = {};
     this.drink.S = entry;
     this.liquor = {};
