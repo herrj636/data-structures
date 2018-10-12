@@ -17,8 +17,8 @@ class DiaryEntry {
   }
 }
 
-diaryEntries.push(new DiaryEntry(0, 'October 12, 2018', "I was born!", true, ["baby food", "baby formula"]));
-diaryEntries.push(new DiaryEntry(1, 'October 12, 2018', "I piloted my first solo flight!", true, ["pancakes"]));
-diaryEntries.push(new DiaryEntry(2, 'October 12, 2018', false));
+diaryEntries.push(new DiaryEntry(0, 'October 11, 2018', 1941,4.00, beer, beer);
+diaryEntries.push(new DiaryEntry(1, 'October 11, 2018', 2017, 4.00, beer, beer);
+diaryEntries.push(new DiaryEntry(2, 'October 11, 2018', 2103, 4.00, beer, beer);
 
 console.log(diaryEntries);
