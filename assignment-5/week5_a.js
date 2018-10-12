@@ -19,8 +19,8 @@ class DiaryEntry {
   }
 }
 
-diaryEntries.push(new DiaryEntry(0, 'October 11, 2018', 1941, 4.00, 'beer', 'beer', 'Sam Adams');
-diaryEntries.push(new DiaryEntry(1, 'October 11, 2018', 2017, 4.00, 'beer', 'beer', 'Sam Adams');
-diaryEntries.push(new DiaryEntry(2, 'October 11, 2018', 2103, 4.00, 'beer', 'beer', 'Bud Light');
+diaryEntries.push(new DiaryEntry(0, 'October 11, 2018', 1941, 4.00, 'beer', 'beer', 'Sam Adams'));
+diaryEntries.push(new DiaryEntry(1, 'October 11, 2018', 2017, 4.00, 'beer', 'beer', 'Sam Adams'));
+diaryEntries.push(new DiaryEntry(2, 'October 11, 2018', 2103, 4.00, 'beer', 'beer', 'Bud Light'));
 
 console.log(diaryEntries);
