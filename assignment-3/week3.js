@@ -55,28 +55,32 @@ async.eachSeries(addresses, function(value, callback, last) {
     apiRequest += 'streetAddress=' + value.split(' ').join('%20');
     apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
     apiRequest += '&format=json&version=4.01';
-    console.log(apiKey)
-    console.log(apiRequest);
     
-    var thisMeeting = new Object;
-    thisMeeting.address = value;
+    // console.log(apiKey)
+    // console.log(apiRequest);
+    // var thisMeeting = new Object;
+    // thisMeeting.address = value;
+    
     request(apiRequest, function(err, resp, body) {
         if (err) {throw err;}
         console.log('Connected')
         var tamuGeo = JSON.parse(body);
+        var arrData = [] 
         sa = tamuGeo["InputAddress"]["StreetAddress"];
         console.log(tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"]);
         lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
         lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
-        fs.appendFileSync('data.json', JSON.stringify({"street":sa,"lat":lat,"lon":lon}));
-        if (last)
-                fs.appendFileSync('data.json', ']');  // close JSON at end
-            else
-                fs.appendFileSync('data.json', ',');
+        var obj0 = {"street":sa,"lat":lat,"lon":lon}
+        return meetingsData.push(obj0)
     });
+    
     setTimeout(callback, 2000);
+    
 }, function() {
+    // fs.appendFileSync('data.json', ']');
+    console.log("DONE");
     console.log(meetingsData);
+    fs.appendFileSync('tamuData06.json', JSON.stringify(meetingsData));
 });
 
-fs.writeFileSync('data.json', '[');
+fs.writeFileSync('tamuData06.json', '[');
