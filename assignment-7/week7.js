@@ -21,40 +21,42 @@ var addresses = addressArray
 var meetingsData = []
 var i = 0
 
-async.eachSeries(addresses, function(value, callback, last) {
-    var apiRequest = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx?';
-    apiRequest += 'streetAddress=' + value.split(' ').join('%20');
-    apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
-    apiRequest += '&format=json&version=4.01';
+// async.eachSeries(addresses, function(value, callback, last) {
+//     var apiRequest = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx?';
+//     apiRequest += 'streetAddress=' + value.split(' ').join('%20');
+//     apiRequest += '&city=New%20York&state=NY&apikey=' + apiKey;
+//     apiRequest += '&format=json&version=4.01';
 
-    // console.log(apiKey)
-    // console.log(apiRequest);
-    // console.log(data)
+//     // console.log(apiKey)
+//     // console.log(apiRequest);
+//     // console.log(data)
     
-    request(apiRequest, function(err, resp, body) {
-        if (err) {throw err;}
-        console.log('Connected')
-        console.log(i)
-        var tamuGeo = JSON.parse(body);
-        sa = tamuGeo["InputAddress"]["StreetAddress"];
-        // console.log(tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"]);
-        lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
-        lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
-        var tamuObj = {"street":sa,"lat":lat,"lon":lon}
-        i++
-        return meetingsData.push(tamuObj)
+//     request(apiRequest, function(err, resp, body) {
+//         if (err) {throw err;}
+//         console.log('Connected')
+//         console.log(i)
+//         var tamuGeo = JSON.parse(body);
+//         sa = tamuGeo["InputAddress"]["StreetAddress"];
+//         // console.log(tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"]);
+//         lat = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Latitude"];
+//         lon = tamuGeo["OutputGeocodes"][0]["OutputGeocode"]["Longitude"];
+//         var tamuObj = {"street":sa,"lat":lat,"lon":lon}
+//         i++
+//         return meetingsData.push(tamuObj)
 
 
-    });
-    setTimeout(callback, 1500);
-}, function() {
-    console.log("DONE");
-    // console.log(meetingsData);
-    fs.appendFileSync('data/tamuResponse.json', JSON.stringify(meetingsData));
-    setTimeout(function(){ cleanerUp(); }, 1500);
-});
+//     });
+//     setTimeout(callback, 1500);
+// }, function() {
+//     console.log("DONE");
+//     // console.log(meetingsData);
+//     fs.appendFileSync('data/tamuResponse.json', JSON.stringify(meetingsData));
+//     setTimeout(function(){ cleanerUp(); }, 1500);
+// });
 
 // setTimeout(console.log(hello), 3000); 
+
+
 
 //Combinator: will take html data and tamu response and compile it into one json file.
 function cleanerUp(r){
@@ -70,7 +72,7 @@ function cleanerUp(r){
     console.log(element.address, i);
     // console.log(obj1[i].lat);
     
-    obj2.push({"old address": element.address , "new address": obj1[i].streetAddress, "lat": obj1[i].lat, "lon": obj1[i].lon, "adrMeta":element.adrMeta, "title":element.title, "wheelchair": element.wheelc, "meetings":element.meetings});
+    obj2.push({"oldaddress": element.address , "new address": obj1[i].streetAddress, "lat": obj1[i].lat, "lon": obj1[i].lon, "adrMeta":element.adrMeta, "title":element.title, "wheelchair": element.wheelc, "meetings":element.meetings});
 });
 
 
@@ -78,3 +80,5 @@ fs.writeFileSync('data/finalCompiledData.json', JSON.stringify(obj2));
 
 }
  
+ 
+ cleanerUp();

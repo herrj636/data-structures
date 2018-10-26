@@ -8,7 +8,7 @@ obj0.forEach (function(element, i){
     console.log(element.address, i);
     console.log(obj1[i].lat);
     
-    obj2.push({"old address": element.address , "new address": obj1[i].streetAddress, "lat": obj1[i].lat, "lon": obj1[i].lon});
+    obj2.push({"oldaddress": element.address , "new address": obj1[i].streetAddress, "lat": obj1[i].lat, "lon": obj1[i].lon});
 });
 
 

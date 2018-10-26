@@ -1,10 +1,10 @@
 
-var AWS = require('aws-sdk');
-var async = require('async');
+var AWS = require("aws-sdk");
+var async = require("async");
 
 AWS.config = new AWS.Config();
 AWS.config.accessKeyId = process.env.AWS_ID;
-AWS.config.secretAccessKey = process.env.AWS_KEY;
+AWS.config.secretAccessKey = process.env.AWS_Key;
 AWS.config.region = "us-east-1";
 
 var dynamodb = new AWS.DynamoDB();
@@ -24,5 +24,6 @@ async.eachSeries(diaryEntries, function(value, callback) {
 }); 
 
 function getData() {
- return  [ { 'pk': { 'N': '0' }, 'date': { 'S': 'Thu Oct 11 2018' }, 'time': { 'N': '1941' }, 'price': { 'N': '4' }, 'drink': { 'S': 'beer' }, 'liquor': { 'S': 'beer' }, 'drinkName': { 'S': 'Sam Adams' }, { 'pk': { 'N': '1' }, 'date': { 'S': 'Thu Oct 11 2018' }, 'time': { 'N': '2017' }, 'price': { 'N': '4' }, 'drink': { 'S': 'beer' }, 'liquor': { 'S': 'beer' }, 'drinkName': { 'S': 'Sam Adams' }, { 'pk': { 'N': '2' }, 'date': { 'S': 'Thu Oct 11 2018' }, 'time': { 'N': '2103' }, 'price': { 'N': '4' }, 'drink': { 'S': 'beer' }, 'liquor': {'S': 'beer' }, 'drinkName': { 'S': 'Bud Light' } ];
+return [{"pk":{"N":"10112018"},"time":{"N":"1941"},"latlon":{"NS":["40.7370996","-73.9737431"]},"price":{"N":"4"},"drinkFm":{"S":"beer"},"liquor":{"S":"beer"},"brand":{"S":"Sam Adams"}},{"pk":{"N":"10112018"},"time":{"N":"2017"},"latlon":{"NS":["40.7370996","-73.9737431"]},"price":{"N":"4"},"drinkFm":{"S":"beer"},"liquor":{"S":"beer"},"brand":{"S":"Sam Adams"}},{"pk":{"N":"10112018"},"time":{"N":"2103"},"latlon":{"NS":["40.7370996","-73.9737431"]},"price":{"N":"4"},"drinkFm":{"S":"beer"},"liquor":{"S":"beer"},"brand":{"S":"Bud Light"}}]
+
 }

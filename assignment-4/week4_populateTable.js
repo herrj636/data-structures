@@ -1,38 +1,28 @@
+
 const { Client } = require('pg');
 var async = require('async');
-var fs = require('fs');
 
-
+// ENDPOINT: db.cumu7khhlm3w.us-east-2.rds.amazonaws.com
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
-db_credentials.user = 'herrj636';
-db_credentials.host = 'my-data-structures.cfuhtqfrbela.us-east-1.rds.amazonaws.com';
-db_credentials.database = 'AAmeetings_data';
+db_credentials.user = 'herrj636'; //182
+// db_credentials.host = 'dsdemo.c2g7qw1juwkg.us-east-1.rds.amazonaws.com';
+// db_credentials.host = 'mydb.ce54cjiwuvvo.us-east-1.rds.amazonaws.com';
+db_credentials.host = 'db.cumu7khhlm3w.us-east-2.rds.amazonaws.com'; // had to create it twice.
+db_credentials.database = 'aaDatabase';
 db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
+// var addressesForDb = [ { address: '63 Fifth Ave, New York, NY', latLong: { lat: 40.7353041, lng: -73.99413539999999 } }, { address: '16 E 16th St, New York, NY', latLong: { lat: 40.736765, lng: -73.9919024 } }, { address: '2 W 13th St, New York, NY', latLong: { lat: 40.7353297, lng: -73.99447889999999 } } ];
+var addressesForDb = [ { address: '63 Fifth Ave, New York, NY', latLong: { lat: 40.7353041, lng: -73.99413539999999 } }, { address: '16 E 16th St, New York, NY', latLong: { lat: 40.736765, lng: -73.9919024 } }, { address: '2 W 13th St, New York, NY', latLong: { lat: 40.7353297, lng: -73.99447889999999 } } ];;
 
-// Connect to the AWS RDS Postgres database
-const client = new Client(db_credentials);
-client.connect();
-
-var data = JSON.parse(fs.readFileSync('data/data.json'));
-
-async.eachSeries(data, function(value, callback) {
+async.eachSeries(addressesForDb, function(value, callback) {
     const client = new Client(db_credentials);
     client.connect();
-    var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.street + "', " + value.lat + ", " + value.lon + ");";
+    var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
     client.query(thisQuery, (err, res) => {
         console.log(err, res);
         client.end();
     });
-    setTimeout(callback, 2000);
+    setTimeout(callback, 1000); 
 }); 
-
-
-client.query(thisQuery, (err, res) => {
-    console.log(err, res);
-    client.end();
-});
-
-var thisQuery = "SELECT * FROM aalocations;";
