@@ -1,8 +1,8 @@
 // npm install aws-sdk
 var AWS = require('aws-sdk');
 AWS.config = new AWS.Config();
-AWS.config.accessKeyId = "AKIAIWKO37JY6D3SEIRA"
-AWS.config.secretAccessKey = "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"
+AWS.config.accessKeyId = process.env.AWS_ID;
+AWS.config.secretAccessKey = process.env.AWS_KEY;
 AWS.config.region = "us-east-1";
 
 var dynamodb = new AWS.DynamoDB();
@@ -30,3 +30,4 @@ dynamodb.query(params, function(err, data) {
         });
     }
 });
+
