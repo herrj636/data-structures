@@ -3,6 +3,9 @@ var obj0 = JSON.parse(fs.readFileSync('data/HTMLscrape', 'utf8')) // outputLatLo
 var obj1 = JSON.parse(fs.readFileSync('data/TAMUResponse', 'utf8')) // TAMU Response
 var obj2 = []
 
+var objArr = obj2.push(obj0)
+console.log(objArr);
+
 
 obj0.forEach (function(element, i){
     console.log(element.address, i);
