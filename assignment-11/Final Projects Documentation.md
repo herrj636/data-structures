@@ -9,3 +9,9 @@
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%201.png">
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%202.png">
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%203.png">
+<h4>Dear Diary Project</h4>
+<p>For my AA project, I'm planning to keep it simple and accessible to users that need to access this information. Last semester I worked on a project that looked at how the homeless population in New York gets access to internet services. One of the main findings that we found is that a lot of this poeple have access to the information, but they are not literate in how to navigate this websites. Although we are not serving homeless people in this website, it does speak to how simple navigation needs to be in websites that aim to reach a diverse range of people, such as the population of New York.</p>
+<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Dear%20Diary/DearData_UI.png">
+
+
+
