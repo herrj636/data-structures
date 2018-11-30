@@ -1,4 +1,4 @@
-<h2>Interface Documentation for final projects</h2>
+<h2>Interface Documentation for Final Projects</h2>
 <h4>Sensor Data Project</h4>
 <p>For the Sensor project, I'm working with the a force sensitive resistor. I have create a mechanism that changes state when I'm home.</p>
 <p>With this sensor data, I want to create a website that lets the user know if I'm home or not. It's a funny experiment that uses the data in a fun way, while making a critique on the 'always-connected' culture we live in today.</p>
