@@ -5,13 +5,16 @@ var async = require("async");
 AWS.config = new AWS.Config();
 AWS.config.accessKeyId = process.env.AWS_ID;
 AWS.config.secretAccessKey = process.env.AWS_Key;
-AWS.config.region = "us-east-1";
+AWS.config.region = "us-east-2";
 
-var dynamodb = new AWS.DynamoDB({apiVersion: '2012-10-08'});
+var dynamodb = new AWS.DynamoDB();
 
 var diaryEntries = [
    {
       "pk":{
+         "N":"0"
+      },
+      "date":{
          "N":"10042018"
       },
       "time":{
@@ -38,6 +41,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"1"
+      },
+      "date":{
          "N":"10042018"
       },
       "time":{
@@ -64,6 +70,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"2"
+      },
+      "date":{
          "N":"10042018"
       },
       "time":{
@@ -90,6 +99,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"3"
+      },
+      "date":{
          "N":"10042018"
       },
       "time":{
@@ -116,6 +128,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"4"
+      },
+      "date":{
          "N":"10042018"
       },
       "time":{
@@ -142,6 +157,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"5"
+      },
+      "date":{
          "N":"10112018"
       },
       "time":{
@@ -168,6 +186,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"6"
+      },
+      "date":{
          "N":"10112018"
       },
       "time":{
@@ -194,6 +215,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"7"
+      },
+      "date":{
          "N":"10112018"
       },
       "time":{
@@ -220,6 +244,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"8"
+      },
+      "date":{
          "N":"10112018"
       },
       "time":{
@@ -246,6 +273,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"9"
+      },
+      "date":{
          "N":"10122018"
       },
       "time":{
@@ -272,6 +302,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"10"
+      },
+      "date":{
          "N":"10122018"
       },
       "time":{
@@ -298,6 +331,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"11"
+      },
+      "date":{
          "N":"10122018"
       },
       "time":{
@@ -324,6 +360,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"12"
+      },
+      "date":{
          "N":"10132018"
       },
       "time":{
@@ -350,6 +389,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"13"
+      },
+      "date":{
          "N":"10132018"
       },
       "time":{
@@ -376,6 +418,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"14"
+      },
+      "date":{
          "N":"10132018"
       },
       "time":{
@@ -402,6 +447,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"15"
+      },
+      "date":{
          "N":"10142018"
       },
       "time":{
@@ -428,6 +476,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"16"
+      },
+      "date":{
          "N":"10142018"
       },
       "time":{
@@ -454,6 +505,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"17"
+      },
+      "date":{
          "N":"10142018"
       },
       "time":{
@@ -480,6 +534,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"18"
+      },
+      "date":{
          "N":"10142018"
       },
       "time":{
@@ -506,6 +563,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"19"
+      },
+      "date":{
          "N":"10142018"
       },
       "time":{
@@ -532,6 +592,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"20"
+      },
+      "date":{
          "N":"10152018"
       },
       "time":{
@@ -558,6 +621,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"21"
+      },
+      "date":{
          "N":"10192018"
       },
       "time":{
@@ -584,6 +650,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"22"
+      },
+      "date":{
          "N":"10192018"
       },
       "time":{
@@ -610,6 +679,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"23"
+      },
+      "date":{
          "N":"10192018"
       },
       "time":{
@@ -636,6 +708,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"24"
+      },
+      "date":{
          "N":"10192018"
       },
       "time":{
@@ -662,6 +737,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"25"
+      },
+      "date":{
          "N":"10192018"
       },
       "time":{
@@ -688,6 +766,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"26"
+      },
+      "date":{
          "N":"10202018"
       },
       "time":{
@@ -714,6 +795,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"27"
+      },
+      "date":{
          "N":"10202018"
       },
       "time":{
@@ -740,6 +824,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"28"
+      },
+      "date":{
          "N":"10212018"
       },
       "time":{
@@ -766,6 +853,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"29"
+      },
+      "date":{
          "N":"10212018"
       },
       "time":{
@@ -792,6 +882,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"30"
+      },
+      "date":{
          "N":"10212018"
       },
       "time":{
@@ -818,6 +911,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"31"
+      },
+      "date":{
          "N":"10212018"
       },
       "time":{
@@ -844,6 +940,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"32"
+      },
+      "date":{
          "N":"10262018"
       },
       "time":{
@@ -870,6 +969,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"33"
+      },
+      "date":{
          "N":"10262018"
       },
       "time":{
@@ -896,6 +998,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"34"
+      },
+      "date":{
          "N":"10262018"
       },
       "time":{
@@ -922,6 +1027,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"35"
+      },
+      "date":{
          "N":"10262018"
       },
       "time":{
@@ -948,6 +1056,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"36"
+      },
+      "date":{
          "N":"10262018"
       },
       "time":{
@@ -974,6 +1085,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"37"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1000,6 +1114,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"38"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1026,6 +1143,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"39"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1052,6 +1172,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"40"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1078,6 +1201,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"41"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1104,6 +1230,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"42"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1130,6 +1259,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"43"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1156,6 +1288,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"44"
+      },
+      "date":{
          "N":"10272018"
       },
       "time":{
@@ -1182,6 +1317,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"45"
+      },
+      "date":{
          "N":"10312018"
       },
       "time":{
@@ -1208,6 +1346,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"46"
+      },
+      "date":{
          "N":"11012018"
       },
       "time":{
@@ -1234,6 +1375,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"47"
+      },
+      "date":{
          "N":"11012018"
       },
       "time":{
@@ -1260,6 +1404,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"48"
+      },
+      "date":{
          "N":"11012018"
       },
       "time":{
@@ -1286,6 +1433,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"49"
+      },
+      "date":{
          "N":"11012018"
       },
       "time":{
@@ -1312,6 +1462,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"50"
+      },
+      "date":{
          "N":"11092018"
       },
       "time":{
@@ -1338,6 +1491,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"51"
+      },
+      "date":{
          "N":"11092018"
       },
       "time":{
@@ -1364,6 +1520,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"52"
+      },
+      "date":{
          "N":"11092018"
       },
       "time":{
@@ -1390,6 +1549,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"53"
+      },
+      "date":{
          "N":"11092018"
       },
       "time":{
@@ -1416,6 +1578,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"54"
+      },
+      "date":{
          "N":"11092018"
       },
       "time":{
@@ -1442,6 +1607,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"55"
+      },
+      "date":{
          "N":"11102018"
       },
       "time":{
@@ -1468,6 +1636,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"56"
+      },
+      "date":{
          "N":"11102018"
       },
       "time":{
@@ -1494,6 +1665,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"57"
+      },
+      "date":{
          "N":"11102018"
       },
       "time":{
@@ -1520,6 +1694,9 @@ var diaryEntries = [
    },
    {
       "pk":{
+         "N":"58"
+      },
+      "date":{
          "N":"11102018"
       },
       "time":{
@@ -1547,17 +1724,20 @@ var diaryEntries = [
 ];
 
 // console.log(diaryEntries)
+var counter = 0
 
 async.eachSeries(diaryEntries, function(value, callback) {
         var params = {};
-        params.TableName = "deardiary";
-        console.log(value);
-        params.Item = value;
-
+        console.log(counter)
         
+       console.log(value);
+        params.Item = value;
+        params.TableName = "deardiary";
+
         dynamodb.putItem(params, function (err, data) {
           if (err) console.log('ERROR'); // an error occurred
           else     console.log(data);           // successful response
         });
-    setTimeout(callback, 1000); 
+    setTimeout(callback, 2000);
+    counter = counter + 1
 }); 
