@@ -13,8 +13,14 @@ db_credentials.port = 5432;
 const client = new Client(db_credentials);
 client.connect();
 
+//Query Sample:
+// (address varchar(200), lat double precision, long double precision, addrMeta Text [], title varchar(1000), wheelchair BOOLEAN NOT NULL, meetings Text []);";
+
+
 // Sample SQL statement to query meetings on Monday that start on or after 7:00pm: 
-var thisQuery = "SELECT oldaddress, lat, lon, wheelchair FROM aadata WHERE wheelchair = '0'";
+var thisQuery = "SELECT address, lat, long, addrMeta, title FROM aalocations";
+
+
 
 client.query(thisQuery, (err, res) => {
     if (err) {throw err}
