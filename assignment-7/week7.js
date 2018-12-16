@@ -2,8 +2,7 @@ var request = require('request'); // npm install request
 var async = require('async'); // npm install async
 var fs = require('fs'); // npm install file-system
 
-var apiKey = '2235f06609484a63991cdbe8607549fb'
-
+var apiKey = process.env.TAMU_KEY
 var data = JSON.parse(fs.readFileSync('data/outputLatLong.json'));
 
 var addressArray = []
@@ -58,27 +57,30 @@ setTimeout(console.log(hello), 3000);
 
 
 
-//Combinator: will take html data and tamu response and compile it into one json file.
-function cleanerUp(r){
+// Combinator: will take html data and tamu response and compile it into one json file.
+function cleanerUp(r) {
     // fs.readFile('data/outputLatLongUpdate.json', function (err, data) {
     // var json = JSON.parse(data)
     // console.log(json[i].readFileSync('data/outputLatLong
     var obj0 = JSON.parse(fs.readFileSync('data/outputLatLong.json', 'utf8')) // outputLatLon
+    // var obj0 = testarray // Test with small sample
     var obj1 = JSON.parse(fs.readFileSync('data/tamuResponse.json', 'utf8')) // TAMU Response
     var obj2 = []
 
+    // console.log(obj0);
 
-    obj0.forEach (function(element, i){
-    console.log(element.address, i);
-    // console.log(obj1[i].lat);
-    
-    obj2.push({"oldaddress": element.address , "new address": obj1[i].streetAddress, "lat": obj1[i].lat, "lon": obj1[i].lon, "adrMeta":element.adrMeta, "title":element.title, "wheelchair": element.wheelc, "meetings":element.meetings});
-});
+    // console.log(obj0[0].meetings[0]);
 
+    let rows = obj0.length;
+    for (let i = 0; i < rows; i++) {
+        
+        obj0[i].meetings.forEach(function(element, n){
+            console.log(obj0[i].address , n)
+            obj2.push({"oldaddress": obj0[i].address , "new address": obj1[i].street, "lat": obj1[i].lat, "lon": obj1[i].lon, "adrMeta":obj0[i].adrMeta, "title":obj0[i].title, "wheelchair": obj0[i].wheelc, "meetings":obj0[i].meetings[n]});
+        })
+        
+    // setTimeout(function() {console.log(obj0.length)}, 3000); Not sure if this is needed.
+    }
+    fs.writeFileSync('data/finalCompiledData.json', JSON.stringify(obj2));
 
-fs.writeFileSync('data/finalCompiledData.json', JSON.stringify(obj2));
-
-}
- 
- 
- cleanerUp();
+};
