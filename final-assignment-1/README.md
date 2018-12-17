@@ -1,5 +1,5 @@
 ### Final Assignment 1
-###AA Data Project
+<h3>AA Data Project</h3>
 
 You can view a working version of this project here:    
 **[http://3.16.188.134:8080](http://3.16.188.134:8080)**
