@@ -9,3 +9,7 @@ For my Dear Diary Project, I'd like to parse some of the information that I've g
 With this data I'm going to create a visualizations of the results. More exactly I want to display what type of alcohol I drank over the month and how much I spent in total. Although I also have location data in my records, I'm struggling on how to connect this data to the narrative I'm presenting in my interface.
 
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Dear%20Diary%20UI/DearData_UI.png">
+
+By working in this project I learned that DynamoDB IS HARD. I wasn't able to access my database beyond a query that pulled one of the data points. It was time consuming to try to learn the language and the documentation available wasn't very helpful nor accurate. 
+
+From all three final assignments, this one was the most frustrating one. Not only because of the difficulty behind learning this NoSQL language, but because it was the data that I was more curious about. As I mentioned above, I was keeping a record of how much alcoholic drinks I consume in a month. From the **[data](https://github.com/herrj636/data-structures/blob/master/final-assignment-2/data.json)**,  
