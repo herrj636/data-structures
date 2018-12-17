@@ -1,5 +1,5 @@
 ### Final Assignment 2
-#Dear Diary Data
+<h3>Dear Diary Data</h3>
 
 You can view a working version of this project here:     
 **[http://3.16.188.134:8081](http://3.16.188.134:8081)**
