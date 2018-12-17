@@ -12,4 +12,5 @@ With this data I'm going to create a visualizations of the results. More exactly
 
 By working in this project I learned that DynamoDB IS HARD. I wasn't able to access my database beyond a query that pulled one of the data points. It was time consuming to try to learn the language and the documentation available wasn't very helpful nor accurate. 
 
-From all three final assignments, this one was the most frustrating one. Not only because of the difficulty behind learning this NoSQL language, but because it was the data that I was more curious about. As I mentioned above, I was keeping a record of how much alcoholic drinks I consume in a month. From the **[data](https://github.com/herrj636/data-structures/blob/master/final-assignment-2/data.json)**,  
+From all three final assignments, this one was the most frustrating one. Not only because of the difficulty behind learning this NoSQL language, but because it was the data that I was more curious about. As I mentioned above, I was keeping a record of how much alcoholic drinks I consume in a month. From the **[data](https://github.com/herrj636/data-structures/blob/master/final-assignment-2/data.json)** I gathered, I found that I drank a total of 58 drinks in a month, as well as other metadata such as location, price, liquor, drink and date.
+
