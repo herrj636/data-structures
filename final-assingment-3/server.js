@@ -70,14 +70,11 @@ body {
 var data = `;
 
 var s2x = `; 
+console.log(data);
+data.splice(0,0,{"sensorday":3,"sensorvalue":"0"},);
+data.splice(8,0,{"sensorday":24,"sensorvalue":"0"},);
+data.splice(11,0,{"sensorday":27,"sensorvalue":"0"},);
 
-data.splice(0,0,{"sensorday":3,"sensorvalue":"0"},)
-data.splice(8,0,{"sensorday":24,"sensorvalue":"0"},)
-data.splice(11,0,{"sensorday":27,"sensorvalue":"0"},)
-
-console.log(JSON.stringify(data))
- 
-console.log(data)
 var margin = {top: 70, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -151,14 +148,12 @@ app.get('/sensor', function(req, res) {
   // var q = `sensordata.sensortime, sensordata.sensorvalue`;
 
   var q = `SELECT EXTRACT(DAY FROM sensortime) as sensorday,
-             COUNT(sensorValue) as sensorvalue
+             COUNT(sensorvalue) as sensorvalue
              FROM sensorData
              WHERE sensorValue BETWEEN 0 AND 5000
              GROUP BY sensorday
              ORDER BY sensorday
              `;
-
-
 
 
   client.connect();
