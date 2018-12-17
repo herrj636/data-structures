@@ -20,8 +20,56 @@ var s1x = `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
 <style>
 body {
-  font: 10px sans-serif;
+    background: white;
+    font: 10px sans-serif;
+    font-color: white;
+      height: 900px;
 }
+
+a {
+    color:#fff;
+}
+
+h2{
+    color:black;
+    font-family: "Staatliches";
+    font-size: 45pt;
+    letter-spacing: 0.03em;
+}
+
+h3 {
+    color: black;
+    font-family: "Staatliches";
+    font-size: 28pt;
+}
+
+text {
+}
+
+#content {
+  position: absolute;
+  /*top: 50%;*/
+  left: 50%;
+  /*margin-top: -50px;*/
+  margin-left: -315px;
+  text-align: center;
+
+
+}
+
+#svg {
+  margin-top: 360px;
+  position: absolute;
+  /*top: 50%;*/
+  left: 50%;
+  /*margin-top: -50px;*/
+  margin-left: -480px;
+  text-align: center;
+  padding-top: 20px;
+
+
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -29,10 +77,10 @@ body {
   shape-rendering: crispEdges;
 }
 .bar {
-  fill: orange;
+  fill: #04b387;
 }
 .bar:hover {
-  fill: orangered ;
+  fill: black;
 }
 .x.axis path {
   display: none;
@@ -64,22 +112,28 @@ body {
 }
 </style>
 <body>
+  <div id="content">
+    <h2>When will Juan be back home?</h2>
+    <h3>I don't know, I'm just a website...<br>However, here's a graph showing how many<br>minutes he's been home over the last few days.<br><span style="color: #04b387">Green represents the minutes he was home each day.</h3>
+  </div>
+  <div id="svg"></div>
+
+  <!-- <div><h3 style="color: #04b387;">The green bars represent how many minutes he's been home.</h3></div> -->
+</body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
-var data = `;
+var data =  `;
 
 var s2x = `; 
-console.log(data);
-data.splice(0,0,{"sensorday":3,"sensorvalue":"0"},);
-data.splice(8,0,{"sensorday":24,"sensorvalue":"0"},);
-data.splice(11,0,{"sensorday":27,"sensorvalue":"0"},);
+data.splice(0,0,{"sensorday":3,"sensorvalue":"0"},)
+data.splice(8,0,{"sensorday":24,"num_obs":"0"},)
+data.splice(11,0,{"sensorday":27,"num_obs":"1.1219512195121951"},)
 
+console.log(data)
 var margin = {top: 70, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
-
-var formatPercent = d3.format(".0%");
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -98,7 +152,7 @@ var tip = d3.tip()
   .html(function(d) {
     return "<strong>Minutes at home:</strong> <span style='color:red'>" + d.sensorvalue + "</span>";
   })
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#svg").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
