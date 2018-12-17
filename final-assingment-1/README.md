@@ -10,5 +10,5 @@ Alcoholism is a conidition that affects a wide range of different people, and AA
 
 This is the first time that I had to work with such a masive database and it was interesting to learn how to manage it without being overwhelmed by the size of database, which was a problem for me in previouse semesters. In order to create this database I had to develop my skills in Javascript and learn how to work with SQL in order to get the precise queries I want to make.
 
-<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/AA%20UI/AA_UI1.png">
+<img border="5" src="https://github.com/herrj636/data-structures/blob/master/assignment-11/AA%20UI/AA_UI1.png">
 
