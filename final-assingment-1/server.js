@@ -21,6 +21,7 @@ var hx = `<!doctype html>
   <title>AA Meetings Map</title>
   <meta name="description" content="Meetings of AA in Manhattan">
   <meta name="Juan Herrera" content="AA">
+  <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=1.0">
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -43,12 +44,35 @@ var jx = `;
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoiaGVycmo2MzYiLCJhIjoiY2pwNHo3d3Z1MG13eDN2cGp2Zmpma2kwciJ9.-vFG4rDskuh0Zttsvm6njA' 
     }).addTo(mymap);
-    // console.log(data)
-    console.log(data[1].json_agg[0].address, data[1].json_agg[0].name)
+    console.log(data)
+    console.log()
+    // console.log(data[1].json_agg[0].address, data[1].json_agg[0].name, data[1].lat, data[1].long)
+    
+    
     for (var i=0; i<data.length; i++) {
-        // console.log(data[i].json_agg[0].address, data[i].json_agg[0].name)
-        L.marker( [data[i].lat, data[i].long] ).bindPopup('"' + data[i].lat + '", "' + data[i].long + '", "' + data[i].json_agg[0].address + '", "' + data[i].json_agg[0].name + '"').addTo(mymap);
+        // console.log(data[i])
+        var meetArr = [];
+        var meetData = data[i].json_agg.forEach(function(element, n){
+        // console.log(n)
+        meetArr.push(element.meetings[0], element.meetings[1], element.meetings[2], element.meetings[3], "<br>")
+        
+        })
+        console.log(meetArr)
+        
+        L.marker( [data[i].lat, data[i].long] ).bindPopup("<strong>Meeting:</strong><br>" + data[i].json_agg[0].name + "<br><br><strong>Address:</strong><br>" + data[i].json_agg[0].address + "<br><br><strong>Lat, Lon:</strong><br>" + data[i].lat + ", " + data[i].long + "<br><br>" + meetArr.toString()).addTo(mymap);
     }
+    
+    
+    // for (var i=0; i<data.length; i++) {
+    //     // console.log(data[i])
+        
+    //     data[i].json_agg.forEach(function(element, n){
+    //     // console.log(n)
+    //     console.log(element.meetings[0], element.meetings[1], element.meetings[2], element.meetings[3], "<br>")
+    //     })
+        
+    //     L.marker( [data[i].lat, data[i].long] ).bindPopup("<strong>Meeting:</strong><br>" + data[i].json_agg[0].name + "<br><br><strong>Address:</strong><br>" + data[i].json_agg[0].address + "<br><br><strong>Lat, Lon:</strong><br>" + data[i].lat + ", " + data[i].long).addTo(mymap);
+    // }
     </script>
     </body>
     </html>`;
@@ -65,17 +89,11 @@ app.get('/aameetings', function(req, res) {
 
 
     //MY QUERY
-    var thisQuery = `SELECT lat, long, json_agg(json_build_object('address', address, 'name', title))
+    var thisQuery = `SELECT lat, long, json_agg(json_build_object('address', address, 'name', title, 'meetings', meetings))
                FROM aalocations 
-               GROUP BY lat, long
+               GROUP BY lat, long, title, address
                ;`;
 
-    // SQL query 
-    // var thisQuery = `SELECT lat, lon, json_agg(json_build_object('loc', mtglocation, 'address', mtgaddress, 'time', tim, 'name', mtgname, 'day', day, 'types', types, 'shour', shour)) as meetings
-    //              FROM aalocations 
-    //              WHERE day = ` + dayy + 'and shour >= ' + hourr + 
-    //              `GROUP BY lat, lon
-    //              ;`;
 
     client.query(thisQuery, (qerr, qres) => {
         if (qerr) { throw qerr }
