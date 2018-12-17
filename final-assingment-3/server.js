@@ -19,10 +19,15 @@ var s1x = `<!DOCTYPE html>
 <!-- Adapted from: http://bl.ocks.org/Caged/6476579 -->
 <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=1.0">
+
+
 <body>
+  
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
+
+
 var data = `;
 
 var s2x = `; 
@@ -30,6 +35,8 @@ var s2x = `;
 data.splice(0,0,{"sensorday":3,"sensorvalue":"0"},)
 data.splice(8,0,{"sensorday":24,"num_obs":"0"},)
 data.splice(11,0,{"sensorday":27,"num_obs":"1.1219512195121951"},)
+
+
  
 console.log(data)
 var margin = {top: 70, right: 20, bottom: 30, left: 40},

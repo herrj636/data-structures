@@ -7,12 +7,21 @@ body {
 }
 
 a {
-    color:#fff;
+    color:#04b387;
+    font-family: "Staatliches";
 }
 
 h2{
     color:#fff;
+    font-family: "Staatliches";
+    font-size: 45pt;
+    letter-spacing: 0.03em;
+}
 
+h3 {
+    color:#fff;
+    font-family: "Staatliches";
+    font-size: 28pt;
 }
 
 .centered {

@@ -1,28 +1,5 @@
 
 
-body {
-    background: black;
-    font: 10px sans-serif;
-}
-
-a {
-    color:#fff;
-}
-
-h2{
-    color:#fff;
-
-}
-
-.centered {
-  position: fixed;
-  /*top: 50%;*/
-  left: 50%;
-  /*margin-top: -50px;*/
-  margin-left: -240px;
-  text-align: center;
-}
-
 
 body {
   font: 10px sans-serif;
