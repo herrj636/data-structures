@@ -4,14 +4,8 @@
 You can view a working version of this project here:     
 **[http://3.16.188.134:8081](http://3.16.188.134:8081)**
 
-For the Sensor project, I'm working with the a force sensitive resistor. I have create a mechanism that changes state when I'm home.
+For my Dear Diary Project, I'd like to parse some of the information that I've gathered over the last month. For this project I kept a record my drinking habits and kept track of the type of drink, its price and where I was drinking it.
 
-With this sensor data, I want to create a website that lets the user know if I'm home or not. It's a funny experiment that uses the data in a fun way, while making a critique on the 'always-connected' culture we live in today.
+With this data I'm going to create a visualizations of the results. More exactly I want to display what type of alcohol I drank over the month and how much I spent in total. Although I also have location data in my records, I'm struggling on how to connect this data to the narrative I'm presenting in my interface.
 
-Additionally, using the data that's being recorded in through the Postgre data base, I can let the user see my weekly data and make a decision on if I'm home or not.
-
-<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%201.png">
-
-<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%202.png">
-
-<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%203.png">
+<img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Dear%20Diary%20UI/DearData_UI.png">
