@@ -14,3 +14,5 @@ By working in this project I learned that DynamoDB IS HARD. I wasn't able to acc
 
 From all three final assignments, this one was the most frustrating one. Not only because of the difficulty behind learning this NoSQL language, but because it was the data that I was more curious about. As I mentioned above, I was keeping a record of how much alcoholic drinks I consume in a month. From the **[data](https://github.com/herrj636/data-structures/blob/master/final-assignment-2/data.json)** I gathered, I found that I drank a total of 58 drinks in a month, as well as other metadata such as location, price, liquor, drink and date.
 
+I like to go drink on the weekends and I was curious to learn what type of liquour and how many drinks I had during a timespan of one month. I was also curious to get a rough estimate of how much money I spend in drinks during the month.
+

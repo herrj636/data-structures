@@ -8,7 +8,9 @@ For my AA project, I'm planning to keep it simple and accessible to users that n
 
 Alcoholism is a conidition that affects a wide range of different people, and AA is an organization that aims to care for all of them. Thefore, it's very important that this website is designed to be accesible to the person who is suffering from alcoholism but hasn't reached out for help, to the recovered person who returns to the meetings for support and to continue to stay sober.
 
-This is the first time that I had to work with such a masive database and it was interesting to learn how to manage it without being overwhelmed by the size of database, which was a problem for me in previouse semesters. In order to create this database I had to develop my skills in Javascript and learn how to work with SQL in order to get the precise queries I want to make.
+This is the first time that I had to work with such a masive database and it was interesting to learn how to manage it without being overwhelmed by the size of database, which was a problem for me in previous semesters. In order to create this database I had to develop my skills in Javascript and learn how to work with SQL in order to get the precise queries I want to make.
+
+Learning Node.js to extract, insert, query and use data from the server side was very interesting and really widened my coding skills. I look forward to using the code in other projects.  
 
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/AA%20UI/AA_UI1.png"  border="5">
 
