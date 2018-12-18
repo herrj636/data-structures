@@ -14,6 +14,6 @@ I wanted to take the opportunity to use the API that's available via de sensor, 
 
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%202.png">
 
-Additionally, using the data that's being recorded in through the PostgreSQL database, I can let the user see my historic data and make a decision on if I'm home or not. 
+Additionally, using the data that's being recorded in through the PostgreSQL database, I can let the user see my historic data so the user can get an idea of when I might be home. 
 
 <img src="https://github.com/herrj636/data-structures/blob/master/assignment-11/Sensor%20UI/Web%201920%20%E2%80%93%203.png">
